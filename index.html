@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=devise-width, inital-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+ <section class="galeryslider">
+     <div class="wrap__menu-galeryslider">
+       <div class="list__menu-galeryslider">
+         <a href="#"><span class="menu__link" id="all">All</span></a>
+         <a href="#"><span class="menu__link" id="graphic">GRAPHIC</span></a>
+         <a href="#"><span class="menu__link" id="web">WEB</span></a>
+         <a href="#"><span class="menu__link" id="photography">PHOTOGRAPHY</span></a>
+       </div>
+     </div>
+     <div class="wrap__block-photo-top">
+      <div class="container block-photo-top">
+       <div class="block-photo-top__row">
+         <div class="block-photo-top__item">
+           <div class="block-photo">
+             <div class="photo"><img src="images/img1.jpg" alt=""></div>
+           </div>
+           <div class="block-photo">
+             <div class="photo"><img src="images/img2.jpg" alt=""></div>
+           </div>
+           <div class="block-photo">
+             <div class="photo"><img src="images/img3.jpg" alt=""></div>
+           </div>
+           <div class="block-photo">
+             <div class="photo"><img src="images/img4.jpg" alt=""></div>
+           </div>
+         </div>
+       </div>
+       </div>
+     </div>
+     <div class="block__player-bg">
+       <div class="container__player-bg">
+         <div class="wrap__player-bg">
+           <div class="player-bg__column">
+             <div class="column__left">
+               <div id="player" class="block__player"><img src="images/img1.jpg" name="slide_show" alt=""></div>
+             </div>
+             <div class="column__right">
+               <div class="wrap__column__right">
+                 <div class="column__right-item">
+                  <div class="right__top">
+                   <div class="title__column__right">LOREM IPSUM IMAGE</div>
+                   <div class="text__column__right"><p>Donec sollicitudin molestie malesuada. Curabitur aliquet quam id dui posuere blandit. 
+                    Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elemena port
+                    titor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Ves
+                      tibulum ac diam sit anet.</p>
+                    <p>Oitudin molestie malesuada. Curabitur aliquet quam id dui posuere blandit. Nulla portti
+                    tor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elemena porttitor accum
+                    san tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac 
+                      diam sit anet.</p></div>
+                  </div>
+                  <div class="right__btm">
+                    <div class="text__right__btm">
+                      <p>March 2013</p>
+                      <p>Lorem Studio,NY</p>
+                      <p>AI,PS Design</p>
+                    </div>
+                    <div class="btn__view-in-action">
+                      <a href="javascript:chgImg(-1)">
+                        <button class="action" onclick="function imgShow()" id="action">НАЗАД</button>
+                      </a>
+                      <a href="javascript:auto()">
+                        <button class="action" onclick="function imgShow()" id="action">СТАРТ//СТОП</button>
+                      </a>
+                      <a href="javascript:chgImg(1)">
+                        <button class="action" onclick="function imgShow()" id="action">ВПЕРЕД</button>
+                      </a>
+                    </div>
+                  </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="wrap__block-photo-btm">
+      <div class="container block-photo-btm">
+       <div class="block-photo-btm__row">
+         <div class="block-photo-btm__item">
+           <div class="block-photo">
+             <div class="photo"><img src="images/img5.jpg" alt=""></div>
+           </div>
+           <div class="block-photo">
+             <div class="photo"><img src="images/img6.jpg" alt=""></div>
+           </div>
+           <div class="block-photo">
+             <div class="photo"><img src="images/img7.jpg" alt=""></div>
+           </div>
+           <div class="block-photo">
+             <div class="photo"><img src="images/img8.jpg" alt=""></div>
+           </div>
+         </div>
+       </div>
+       </div>
+     </div>
+   </section>
+   <script>all_images = new Array (
+"images/img1.jpg",
+"images/img2.jpg",
+"images/img3.jpg",
+"images/img4.jpg",
+"images/img5.jpg",
+"images/img6.jpg",
+"images/img7.jpg",
+"images/img8.jpg");
+let ImgNum = 0;
+let ImgLength = all_images.length - 1;
+let delay = 2500;
+let lock = false;
+let run;
+
+function chgImg(direction) {
+ if (document.images) {
+  ImgNum = ImgNum + direction;
+  if (ImgNum > ImgLength) { ImgNum = 0; }
+  if (ImgNum < 0) { ImgNum = ImgLength; }
+  document.slide_show.src = all_images[ImgNum];
+ }
+}
+
+function auto() {
+ if (lock == true) {
+  lock = false;
+  window.clearInterval(run);
+ }
+ else if (lock == false) {
+  lock = true;
+  run = setInterval("chgImg(1)", delay);
+ }
+}
+</script>
+</body>
+</html>
